@@ -4,142 +4,171 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>İyiliğin Geleceği Kulübü</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
 <style>
-  /* Temel renkler ve yazı stilleri */
   body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
-    background-color: #f4ece0; /* pastel toprak ton */
+    background: #f3ece0;
     color: #4b3f36;
+    font-family: 'Roboto', sans-serif;
   }
   header {
-    background-color: #c6b49f; 
-    color: white;
-    padding: 1rem;
+    background: #c8b8a3;
+    color: #fff;
+    padding: 15px;
     text-align: center;
+    font-size: 1.7rem;
+    font-family: 'Playfair Display', serif;
     position: sticky;
     top: 0;
-    z-index: 100;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-  }
-  header h1 {
-    margin: 0;
-    font-size: 1.5rem;
   }
   nav {
     display: flex;
     justify-content: center;
-    background-color: #d1bfae;
+    background: #d6c4b5;
+    flex-wrap: wrap;
   }
   nav button {
-    background: none;
+    background: #e9d8c1;
     border: none;
-    padding: 1rem 1.5rem;
-    cursor: pointer;
+    padding: 12px 18px;
+    margin: 6px;
     font-size: 1rem;
+    cursor: pointer;
+    border-radius: 6px;
     transition: 0.3s;
     color: #4b3f36;
   }
   nav button:hover, nav button.active {
-    background-color: #bfa18c;
+    background: #bfa18c;
     color: white;
-    border-radius: 5px;
   }
   main {
-    padding: 2rem 1rem;
+    padding: 20px;
     max-width: 800px;
     margin: auto;
   }
-  .ayet-box {
-    background-color: #f9f4ee;
-    padding: 1.5rem;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    font-size: 1.1rem;
+  .content-box {
+    background: #fff8f0;
+    padding: 22px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    font-size: 1.2rem;
     line-height: 1.6;
     text-align: center;
-    min-height: 120px;
+    min-height: 150px;
   }
-  .whatsapp-link {
-    display: block;
-    margin-top: 1rem;
-    text-align: center;
-    font-weight: bold;
-    color: #075e54;
+  .whatsapp-btn {
+    display: inline-block;
+    margin-top: 18px;
+    background: #25D366;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
     text-decoration: none;
+    font-weight: bold;
     transition: 0.3s;
   }
-  .whatsapp-link:hover {
-    text-decoration: underline;
+  .whatsapp-btn:hover {
+    background: #1ebe57;
   }
-  .tab-content {
+  footer {
+    text-align: center;
+    font-size: 0.9rem;
+    padding: 12px;
+    margin-top: 30px;
+    color: #4b3f36;
+  }
+  .hidden {
     display: none;
-    margin-top: 2rem;
-    font-size: 1rem;
   }
-  .tab-content.active {
-    display: block;
+  @media(max-width:600px){
+    nav button {
+      flex: 1 1 100%;
+    }
   }
 </style>
 </head>
+
 <body>
 
 <header>
-  <h1>İyiliğin Geleceği Kulübü <small style="font-size:0.6rem; display:block;">İHH Genç</small></h1>
+  İyiliğin Geleceği Kulübü • İHH Genç
 </header>
 
 <nav>
-  <button class="tab-btn active" data-tab="ayet">Günün Ayeti</button>
-  <button class="tab-btn" data-tab="cami">Camiisi</button>
-  <button class="tab-btn" data-tab="sahabe">Sahabesi</button>
+  <button class="active" data-tab="ayet">Günün Ayeti</button>
+  <button data-tab="hadis">Hadis</button>
+  <button data-tab="cami">Camii</button>
+  <button data-tab="sahabe">Sahabe</button>
 </nav>
 
 <main>
-  <div id="ayet" class="tab-content active">
-    <div class="ayet-box" id="ayetBox">Yükleniyor...</div>
-    <a href="https://chat.whatsapp.com/CTnxGJEI3pV4Xz1tjzkehQ?mode=gi_t" target="_blank" class="whatsapp-link">WhatsApp Grubumuza Katıl</a>
+  <!-- Ayet Bölümü -->
+  <div id="ayet" class="content-box">
+    <div id="ayetText">Yükleniyor...</div>
+    <div id="ayetSource" style="margin-top:10px; font-size:0.95rem; color:#555;"></div>
+
+    <a class="whatsapp-btn" href="https://chat.whatsapp.com/CTnxGJEI3pV4Xz1tjzkehQ?mode=gi_t" target="_blank">
+      WhatsApp Grubuna Katıl
+    </a>
   </div>
-  <div id="cami" class="tab-content">
-    <p>Bu kategori için içerik bulunamadı.</p>
+
+  <!-- Diğer kategoriler -->
+  <div id="hadis" class="content-box hidden">
+    <p>Bu kategori için içerik yok.</p>
   </div>
-  <div id="sahabe" class="tab-content">
-    <p>Bu kategori için içerik bulunamadı.</p>
+
+  <div id="cami" class="content-box hidden">
+    <p>Bu kategori için içerik yok.</p>
   </div>
+
+  <div id="sahabe" class="content-box hidden">
+    <p>Bu kategori için içerik yok.</p>
+  </div>
+
 </main>
 
+<footer>&copy; 2026 İyiliğin Geleceği Kulübü</footer>
+
 <script>
-const ayetBox = document.getElementById("ayetBox");
-const ayetURL = "https://api.npoint.io/1cd52bb7c3d023ff1d5c";
+  const ayetTextEl = document.getElementById("ayetText");
+  const ayetSourceEl = document.getElementById("ayetSource");
 
-// Günün ayetini fetch ile çekme
-fetch(ayetURL)
-  .then(response => response.json())
-  .then(data => {
-    if (Array.isArray(data) && data.length > 0) {
-      const index = Math.floor(Math.random() * data.length);
-      ayetBox.textContent = data[index].ayet;
-    } else {
-      ayetBox.textContent = "Günün ayeti bulunamadı.";
-    }
-  })
-  .catch(err => {
-    ayetBox.textContent = "Ayet yüklenirken hata oluştu.";
-    console.error(err);
+  fetch("https://api.npoint.io/174033acdbeb20c8534e")
+    .then(response => response.json())
+    .then(data => {
+      // JSON içindeki "list" array’ine erişiyoruz
+      const ayetList = data.list;
+      if (Array.isArray(ayetList) && ayetList.length > 0) {
+        const randomIndex = Math.floor(Math.random() * ayetList.length);
+        ayetTextEl.textContent = ayetList[randomIndex].text;
+        ayetSourceEl.textContent = ayetList[randomIndex].source;
+      } else {
+        ayetTextEl.textContent = "Günün ayeti bulunamadı.";
+      }
+    })
+    .catch(err => {
+      ayetTextEl.textContent = "Ayet yüklenirken hata oluştu.";
+      console.error(err);
+    });
+
+  // Sekme butonları
+  const buttons = document.querySelectorAll("nav button");
+  const sections = document.querySelectorAll("main > div");
+
+  buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      buttons.forEach(b => b.classList.remove("active"));
+      sections.forEach(s => s.classList.add("hidden"));
+
+      btn.classList.add("active");
+      document.getElementById(btn.dataset.tab).classList.remove("hidden");
+    });
   });
-
-// Sekme butonları için
-const tabButtons = document.querySelectorAll(".tab-btn");
-const tabContents = document.querySelectorAll(".tab-content");
-
-tabButtons.forEach(btn => {
-  btn.addEventListener("click", () => {
-    tabButtons.forEach(b => b.classList.remove("active"));
-    tabContents.forEach(c => c.classList.remove("active"));
-
-    btn.classList.add("active");
-    document.getElementById(btn.dataset.tab).classList.add("active");
-  });
-});
 </script>
 
 </body>
