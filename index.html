@@ -6,161 +6,93 @@
 <title>İyiliğin Geleceği Kulübü</title>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 <style>
-    body {
-        font-family: 'Roboto', sans-serif;
-        margin: 0;
-        background: #f7f9fc;
-        color: #333;
-    }
-    header {
-        background: #00796b;
-        color: #fff;
-        text-align: center;
-        padding: 15px 10px;
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-    }
-    header h1 {
-        margin: 0;
-        font-size: 1.8em;
-    }
-    header .logo {
-        font-size: 0.8em;
-        display: block;
-        margin-top: 5px;
-        color: #b2dfdb;
-    }
-    nav {
-        display: flex;
-        justify-content: center;
-        background: #004d40;
-    }
-    nav button {
-        background: none;
-        border: none;
-        color: #fff;
-        padding: 12px 20px;
-        cursor: pointer;
-        font-size: 1em;
-        transition: background 0.3s;
-    }
-    nav button:hover, nav button.active {
-        background: #00695c;
-    }
-    section {
-        padding: 20px;
-        display: none;
-    }
-    section.active {
-        display: block;
-    }
-    .ayet-box {
-        background: #e0f2f1;
-        padding: 15px;
-        margin-bottom: 20px;
-        border-left: 5px solid #00796b;
-        border-radius: 5px;
-        line-height: 1.6;
-    }
-    .whatsapp-link {
-        text-align: center;
-        margin-top: 30px;
-    }
-    .whatsapp-link a {
-        text-decoration: none;
-        color: #fff;
-        background: #25D366;
-        padding: 12px 25px;
-        border-radius: 25px;
-        font-weight: bold;
-        display: inline-block;
-        transition: background 0.3s;
-    }
-    .whatsapp-link a:hover {
-        background: #128C7E;
-    }
-    @media (max-width: 600px) {
-        nav {
-            flex-direction: column;
-        }
-        nav button {
-            width: 100%;
-            text-align: center;
-        }
-    }
+  * { box-sizing: border-box; margin:0; padding:0; font-family: 'Roboto', sans-serif; }
+  body { background: #fef9f4; color: #333; display:flex; flex-direction:column; min-height:100vh;}
+  header { background: #4caf50; color:white; padding: 20px; text-align:center; position:relative;}
+  header img { position:absolute; right:20px; top:15px; width:50px; height:auto; }
+  header h1 { font-size:1.8rem; }
+  nav { display:flex; justify-content:center; background:#fff; box-shadow:0 2px 5px rgba(0,0,0,0.1); }
+  nav button { flex:1; padding:15px; background:none; border:none; cursor:pointer; font-weight:600; color:#4caf50; transition:0.3s; font-size:1rem;}
+  nav button:hover, nav button.active { background:#4caf50; color:white; }
+  main { flex:1; display:flex; justify-content:center; align-items:center; padding:20px; text-align:center; }
+  .content { background:white; padding:25px; border-radius:12px; box-shadow:0 5px 15px rgba(0,0,0,0.1); max-width:600px; width:100%; }
+  .content p { font-size:1.2rem; line-height:1.6; margin-bottom:15px; }
+  .content span { font-weight:bold; color:#4caf50; }
+  footer { padding:15px; text-align:center; background:#f1f1f1; }
+  footer a { text-decoration:none; background:#25D366; color:white; padding:10px 20px; border-radius:8px; font-weight:600; transition:0.3s; display:inline-block; }
+  footer a:hover { background:#1ebe5d; }
+  @media(max-width:600px){ header h1{font-size:1.5rem;} nav button{font-size:0.9rem; padding:12px;} .content p{font-size:1rem;} }
 </style>
 </head>
 <body>
 
 <header>
-    <h1>İyiliğin Geleceği Kulübü</h1>
-    <span class="logo">İHH Genç</span>
+  <h1>İyiliğin Geleceği Kulübü</h1>
+  <img src="https://ihh.org.tr/wp-content/uploads/2021/03/logo.png" alt="IHH Genç Logo">
 </header>
 
 <nav>
-    <button class="tab-btn active" data-tab="ayet">Ayet & Hadis</button>
-    <button class="tab-btn" data-tab="cami">Camiler</button>
-    <button class="tab-btn" data-tab="sahabe">Sahabe</button>
+  <button class="active" data-category="rastgele">Günün Ayeti</button>
+  <button data-category="hadis">Hadis</button>
+  <button data-category="cami">Camisi</button>
+  <button data-category="sahabe">Sahabe</button>
 </nav>
 
-<section id="ayet" class="active">
-    <div class="ayet-box" id="ayet-box">Yükleniyor...</div>
-</section>
+<main>
+  <div class="content">
+    <p id="text">Yükleniyor...</p>
+    <span id="reference"></span>
+  </div>
+</main>
 
-<section id="cami">
-    <div class="ayet-box">
-        <h3>Örnek Cami / Mescit Bilgisi</h3>
-        <p>Her mescit insanlara iyiliği hatırlatacak şekilde düzenlenmiştir. Burada örnek ibretlik hikâyeler paylaşabilirsiniz.</p>
-    </div>
-</section>
-
-<section id="sahabe">
-    <div class="ayet-box">
-        <h3>İyilik Örnekleri: Sahabe</h3>
-        <p>Hz. Ömer, Hz. Ali, Hz. Ebu Bekir gibi sahabeler iyiliği ve adaleti hayatlarıyla göstermiştir. Buradan kısa örnekler paylaşabilirsiniz.</p>
-    </div>
-</section>
-
-<div class="whatsapp-link">
-    <a href="https://chat.whatsapp.com/CTnxGJEI3pV4Xz1tjzkehQ?mode=gi_t" target="_blank">
-        WhatsApp Grubuna Katıl
-    </a>
-</div>
+<footer>
+  <a href="https://chat.whatsapp.com/CTnxGJEI3pV4Xz1tjzkehQ?mode=gi_t" target="_blank">WhatsApp Grubuna Katıl</a>
+</footer>
 
 <script>
-    // Sekme geçişleri
-    const tabs = document.querySelectorAll('.tab-btn');
-    const sections = document.querySelectorAll('section');
-    tabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-            tabs.forEach(t => t.classList.remove('active'));
-            sections.forEach(s => s.classList.remove('active'));
-            tab.classList.add('active');
-            document.getElementById(tab.dataset.tab).classList.add('active');
-        });
-    });
+const apiUrl = "https://api.npoint.io/1cd52bb7c3d023ff1d5c"; // npoint API
+const textEl = document.getElementById("text");
+const refEl = document.getElementById("reference");
+const buttons = document.querySelectorAll("nav button");
 
-    // Ayetleri API'den çek ve rastgele göster
-    const ayetBox = document.getElementById('ayet-box');
-    let ayetler = [];
-    fetch('https://api.npoint.io/1cd52bb7c3d023ff1d5c')
-        .then(res => res.json())
-        .then(data => {
-            ayetler = data;
-            rastgeleAyet();
-            // Her 10 saniyede yeni ayet
-            setInterval(rastgeleAyet, 10000);
-        })
-        .catch(err => { ayetBox.textContent = "Ayetler yüklenemedi."; });
+let data = [];
 
-    function rastgeleAyet() {
-        if(ayetler.length === 0) return;
-        const index = Math.floor(Math.random() * ayetler.length);
-        ayetBox.innerHTML = ayetler[index];
-    }
+async function fetchData() {
+  try {
+    const res = await fetch(apiUrl);
+    data = await res.json();
+    showRandom("rastgele");
+  } catch(err) {
+    textEl.textContent = "İçerik yüklenemedi. Lütfen daha sonra tekrar deneyin.";
+  }
+}
+
+function showRandom(category) {
+  let filtered = data;
+  if(category !== "rastgele") {
+    filtered = data.filter(item => item.kategori === category);
+  }
+  const randomItem = filtered[Math.floor(Math.random() * filtered.length)];
+  if(randomItem){
+    textEl.textContent = randomItem.text;
+    refEl.textContent = randomItem.reference || "";
+  } else {
+    textEl.textContent = "Bu kategori için içerik bulunamadı.";
+    refEl.textContent = "";
+  }
+}
+
+// Menü butonları
+buttons.forEach(btn => {
+  btn.addEventListener("click", () => {
+    buttons.forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    showRandom(btn.dataset.category);
+  });
+});
+
+fetchData();
 </script>
 
 </body>
 </html>
-
