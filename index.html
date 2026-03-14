@@ -1,178 +1,200 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>İyiliğin Geleceği Kulübü</title>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-<style>
-  /* Genel stil ve pastel/ toprak renkleri */
-  body {
-    margin: 0;
-    font-family: 'Roboto', sans-serif;
-    background: #f3ece0;
-    color: #3e3a36;
-  }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ÇÜ İyiliğin Geleceği Kulübü - Günün Ayeti</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <style>
+    /* Genel stil ve pastel/ toprak tonları */
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: #f2e8dc;
+      color: #4a3f35;
+    }
+    header {
+      background: #d8c3a5;
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6em;
+      margin: 0;
+    }
+    header img {
+      height: 40px;
+    }
 
-  header {
-    background: #c8b8a3;
-    padding: 20px;
-    text-align: center;
-    color: #fff;
-    font-size: 1.5rem;
-    font-weight: bold;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-  }
-
-  nav {
-    display: flex;
-    justify-content: center;
-    background: #d6c4b5;
-    flex-wrap: wrap;
-  }
-
-  nav button {
-    background: #f3e7d2;
-    border: none;
-    margin: 5px;
-    padding: 10px 20px;
-    border-radius: 25px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: 0.3s;
-  }
-
-  nav button:hover {
-    background: #c8b8a3;
-    color: #fff;
-  }
-
-  main {
-    max-width: 700px;
-    margin: 20px auto;
-    padding: 0 15px;
-  }
-
-  .ayat-box {
-    background: #fff7ed;
-    border-left: 5px solid #c8b8a3;
-    padding: 20px;
-    border-radius: 10px;
-    font-size: 1.1rem;
-    line-height: 1.6;
-    min-height: 150px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    transition: 0.3s;
-  }
-
-  .ayat-box.fade {
-    opacity: 0;
-    transition: opacity 0.5s ease;
-  }
-
-  .placeholder {
-    font-style: italic;
-    color: #7a7065;
-  }
-
-  .footer {
-    text-align: center;
-    margin: 40px 0 20px;
-    font-size: 0.9rem;
-    color: #555;
-  }
-
-  .whatsapp-link {
-    display: inline-block;
-    background: #25d366;
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 25px;
-    text-decoration: none;
-    margin-top: 15px;
-    transition: 0.3s;
-  }
-
-  .whatsapp-link:hover {
-    background: #1ebe57;
-  }
-
-  @media(max-width: 500px) {
+    nav {
+      background: #e9d8c1;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      box-shadow: inset 0 -1px 0 rgba(0,0,0,0.1);
+    }
     nav button {
-      flex: 1 1 45%;
-      margin: 5px 5px;
+      background: #e9d8c1;
+      border: none;
+      padding: 12px 20px;
+      margin: 5px;
+      font-size: 1em;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: 0.3s;
+    }
+    nav button:hover {
+      background: #d8c3a5;
+      color: #fff;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.2);
     }
 
-    .ayat-box {
-      font-size: 1rem;
+    main {
+      padding: 20px;
+      max-width: 800px;
+      margin: auto;
     }
-  }
-</style>
+    .ayet-box {
+      background: #fff8f0;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      font-size: 1.2em;
+      line-height: 1.6em;
+      text-align: center;
+      min-height: 150px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: 0.3s;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .whatsapp-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 25px;
+      background: #25D366;
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+    .whatsapp-btn:hover {
+      background: #1ebe57;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px 10px;
+      font-size: 0.9em;
+      color: #4a3f35;
+    }
+
+    /* Alt sekme içerikleri */
+    .tab-content {
+      margin-top: 20px;
+      padding: 20px;
+      background: #fff8f0;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      min-height: 100px;
+    }
+
+    @media (max-width: 600px) {
+      nav button {
+        flex: 1 1 100%;
+        margin: 5px 0;
+      }
+      header h1 {
+        font-size: 1.2em;
+      }
+      .ayet-box {
+        font-size: 1em;
+      }
+    }
+  </style>
 </head>
 <body>
-<header>İyiliğin Geleceği Kulübü</header>
-<nav>
-  <button onclick="showCategory('ayeti')">Günün Ayeti</button>
-  <button onclick="showCategory('hadis')">Günün Hadisi</button>
-  <button onclick="showCategory('camiisi')">Camiisi</button>
-  <button onclick="showCategory('sahabesi')">Sahabesi</button>
-  <button onclick="showCategory('ihh')">İHH Genç</button>
-</nav>
-<main>
-  <div class="ayat-box" id="content">Yükleniyor...</div>
-  <div style="text-align:center;">
-    <a href="https://chat.whatsapp.com/CTnxGJEI3pV4Xz1tjzkehQ?mode=gi_t" target="_blank" class="whatsapp-link">WhatsApp Grubuna Katıl</a>
-  </div>
-</main>
-<div class="footer">© İyiliğin Geleceği Kulübü | İHH Genç</div>
+  <header>
+    <h1>ÇÜ İyiliğin Geleceği Kulübü</h1>
+    <img src="https://ihh.org.tr/assets/logo.png" alt="İHH Genç" title="İHH Genç" />
+  </header>
 
-<script>
-const apiUrl = 'https://api.npoint.io/1cd52bb7c3d023ff1d5c';
+  <nav>
+    <button onclick="showTab('ayet')">Günün Ayeti</button>
+    <button onclick="showTab('hadis')">Günün Hadisi</button>
+    <button onclick="showTab('cami')">Camii & Etkinlik</button>
+    <button onclick="showTab('sahabe')">Sahabe</button>
+    <button onclick="showTab('whatsapp')">WhatsApp Grubu</button>
+  </nav>
 
-let ayetData = [];
+  <main>
+    <div id="ayet" class="tab-content">
+      <div class="ayet-box" id="ayetBox">Yükleniyor...</div>
+    </div>
 
-async function fetchAyets() {
-  try {
-    const response = await fetch(apiUrl);
-    const data = await response.json();
-    ayetData = data;
-    showRandomAyet();
-  } catch (error) {
-    document.getElementById('content').innerText = 'Ayetler yüklenemedi.';
-    console.error(error);
-  }
-}
+    <div id="hadis" class="tab-content hidden">
+      <p>Bugün için hadis verisi bulunamadı.</p>
+    </div>
 
-function showRandomAyet() {
-  if (!ayetData.length) return;
-  const index = Math.floor(Math.random() * ayetData.length);
-  const box = document.getElementById('content');
-  box.classList.add('fade');
-  setTimeout(() => {
-    box.innerHTML = ayetData[index].text || 'Ayet bulunamadı.';
-    box.classList.remove('fade');
-  }, 500);
-}
+    <div id="cami" class="tab-content hidden">
+      <p>Camii ve etkinlik bilgisi buraya gelecek.</p>
+    </div>
 
-function showCategory(category) {
-  const box = document.getElementById('content');
-  box.classList.add('fade');
-  setTimeout(() => {
-    if (category === 'ayeti') {
-      showRandomAyet();
-    } else {
-      box.innerHTML = '<span class="placeholder">Bu kategori için içerik bulunamadı.</span>';
+    <div id="sahabe" class="tab-content hidden">
+      <p>Sahabe ile ilgili bilgiler buraya gelecek.</p>
+    </div>
+
+    <div id="whatsapp" class="tab-content hidden">
+      <a class="whatsapp-btn" href="https://chat.whatsapp.com/CTnxGJEI3pV4Xz1tjzkehQ?mode=gi_t" target="_blank">WhatsApp Grubuna Katıl</a>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2026 ÇÜ İyiliğin Geleceği Kulübü – İHH Genç
+  </footer>
+
+  <script>
+    const ayetBox = document.getElementById('ayetBox');
+    const ayetURL = 'https://api.npoint.io/1cd52bb7c3d023ff1d5c';
+
+    fetch(ayetURL)
+      .then(response => response.json())
+      .then(data => {
+        if (data.length > 0) {
+          const index = Math.floor(Math.random() * data.length);
+          ayetBox.textContent = data[index].ayet;
+        } else {
+          ayetBox.textContent = "Ayet bulunamadı.";
+        }
+      })
+      .catch(err => {
+        ayetBox.textContent = "Yükleme hatası.";
+        console.error(err);
+      });
+
+    function showTab(tabId) {
+      const tabs = document.querySelectorAll('.tab-content');
+      tabs.forEach(tab => {
+        if (tab.id === tabId) {
+          tab.classList.remove('hidden');
+        } else {
+          tab.classList.add('hidden');
+        }
+      });
     }
-    box.classList.remove('fade');
-  }, 500);
-}
-
-window.onload = fetchAyets;
-</script>
+  </script>
 </body>
 </html>
