@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>İlim Köşesi</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
@@ -11,45 +13,42 @@
 
 :root{
 --bg:#0b0e11;
---card-bg:#15191d;
---primary:#1b4332;
---accent:#2d6a4f;
---text-main:#e9ecef;
---text-dim:#adb5bd;
+--card:#15191d;
+--green:#2d6a4f;
+--text:#e9ecef;
+--dim:#adb5bd;
 --whatsapp:#25d366;
 }
 
 body{
+margin:0;
 font-family:Poppins;
 background:var(--bg);
 color:white;
-display:flex;
-justify-content:center;
-padding:10px;
 }
 
-.card{
-background:var(--card-bg);
-max-width:480px;
+.container{
 width:100%;
-border-radius:30px;
-overflow:hidden;
+min-height:100vh;
+display:flex;
+flex-direction:column;
+align-items:center;
 }
 
-.logo-area{
+.top-logo{
 text-align:center;
-padding:20px;
+padding:25px 0 10px 0;
 }
 
-.logo-area img{
-width:80px;
-height:80px;
+.top-logo img{
+width:90px;
+height:90px;
 border-radius:50%;
 }
 
-.timer-box{
+.timer{
 text-align:center;
-padding:20px;
+margin-top:10px;
 }
 
 #countdown{
@@ -60,16 +59,18 @@ font-weight:600;
 
 #next-vakit-name{
 font-size:0.8rem;
-color:var(--text-dim);
+color:var(--dim);
 margin-bottom:5px;
 }
 
 .vakit-bar{
 display:grid;
 grid-template-columns:repeat(5,1fr);
+width:100%;
+max-width:500px;
 text-align:center;
 font-size:0.7rem;
-padding:10px;
+margin-top:15px;
 }
 
 .vakit-item b{
@@ -81,10 +82,33 @@ font-size:0.9rem;
 color:var(--whatsapp);
 }
 
+.nav-tabs{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:10px;
+width:90%;
+max-width:500px;
+margin-top:20px;
+}
+
+.nav-btn{
+background:#1c2126;
+border:none;
+padding:16px;
+border-radius:15px;
+color:white;
+font-weight:600;
+cursor:pointer;
+}
+
+.nav-btn.active{
+background:linear-gradient(135deg,#1b4332,#2d6a4f);
+}
+
 .content{
-padding:30px;
 text-align:center;
-min-height:240px;
+padding:25px;
+max-width:500px;
 }
 
 #kat-etiket{
@@ -95,51 +119,42 @@ margin-bottom:10px;
 
 #ana-metin{
 font-family:Amiri;
-font-size:1.6rem;
+font-size:1.8rem;
+line-height:1.6;
 }
 
 #kaynak{
 margin-top:10px;
-color:var(--text-dim);
+color:var(--dim);
 }
 
 .refresh-btn{
-background:var(--primary);
+background:var(--green);
 border:none;
-padding:10px 20px;
+padding:12px 25px;
 border-radius:30px;
 color:white;
 margin-top:20px;
 cursor:pointer;
+font-weight:600;
 }
 
-.nav-tabs{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-}
-
-.nav-btn{
-padding:16px;
-border:none;
-background:none;
-color:var(--text-dim);
-}
-
-.nav-btn.active{
-background:var(--primary);
-color:white;
-}
-
-/* WhatsApp en alt */
-
-.community-invite{
+.community{
 text-align:center;
-padding:30px;
+margin-top:auto;
+padding:30px 20px 40px 20px;
+}
+
+.club-logo{
+width:80px;
+height:80px;
+border-radius:50%;
+margin-bottom:15px;
 }
 
 .invite-btn{
-background:#25d366;
-padding:12px 25px;
+background:var(--whatsapp);
+padding:12px 28px;
 border-radius:40px;
 color:white;
 text-decoration:none;
@@ -147,52 +162,67 @@ font-weight:600;
 }
 
 </style>
+
 </head>
 
 <body>
 
-<div class="card">
+<div class="container">
 
-<div class="logo-area">
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5kDqyb7ISRa7uW-xKuMKc0YuEadhUjs7p2Q&s">
+<div class="top-logo">
+<img src="https://pbs.twimg.com/profile_images/971805360360128512/KinPUY9i_400x400.jpg">
 </div>
 
-<div class="timer-box">
+<div class="timer">
+
 <div id="next-vakit-name">VAKTE KALAN</div>
 <div id="countdown">00:00:00</div>
+
 </div>
 
 <div class="vakit-bar">
+
 <div class="vakit-item" id="i-Fajr">İmsak<b id="v-imsak">--:--</b></div>
 <div class="vakit-item" id="i-Dhuhr">Öğle<b id="v-ogle">--:--</b></div>
 <div class="vakit-item" id="i-Asr">İkindi<b id="v-ikindi">--:--</b></div>
 <div class="vakit-item" id="i-Maghrib">Akşam<b id="v-aksam">--:--</b></div>
 <div class="vakit-item" id="i-Isha">Yatsı<b id="v-yatsi">--:--</b></div>
+
+</div>
+
+<div class="nav-tabs">
+
+<button class="nav-btn active" onclick="tabDegistir('ayetler',this)">Ayet</button>
+<button class="nav-btn" onclick="tabDegistir('hadisler',this)">Hadis</button>
+<button class="nav-btn" onclick="tabDegistir('sahabeler',this)">Sahabe</button>
+<button class="nav-btn" onclick="tabDegistir('dualar',this)">Dua</button>
+
 </div>
 
 <div class="content">
 
 <div id="kat-etiket">Günün Ayeti</div>
+
 <p id="ana-metin">Yükleniyor...</p>
+
 <div id="kaynak"></div>
 
 <button class="refresh-btn" onclick="rastgeleGetir(aktifKategori)">
-Yeni Getir
+Değiştir
 </button>
 
 </div>
 
-<div class="nav-tabs">
-<button class="nav-btn active" onclick="tabDegistir('ayetler',this)">Ayet</button>
-<button class="nav-btn" onclick="tabDegistir('hadisler',this)">Hadis</button>
-<button class="nav-btn" onclick="tabDegistir('sahabeler',this)">Sahabe</button>
-<button class="nav-btn" onclick="tabDegistir('dualar',this)">Dua</button>
-</div>
+<div class="community">
 
-<div class="community-invite">
+<img class="club-logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5kDqyb7ISRa7uW-xKuMKc0YuEadhUjs7p2Q&s">
+
+<br>
+
 <a href="https://chat.whatsapp.com/EqjGZOCxmr9IgJHyK5zjul?mode=gi_t" target="_blank" class="invite-btn">
 Bize Katıl
 </a>
+
 </div>
 
 </div>
@@ -213,6 +243,7 @@ dualar:"Günün Duası"
 async function vakitCek(){
 
 const d=new Date()
+
 const date=d.getDate()+"-"+(d.getMonth()+1)+"-"+d.getFullYear()
 
 const res=await fetch(`https://api.aladhan.com/v1/timingsByCity?city=Adana&country=Turkey&method=13&date=${date}`)
@@ -250,12 +281,17 @@ let next=null
 for(let v of vList){
 
 let vt=new Date()
+
 const[h,m]=v.t.split(":")
+
 vt.setHours(h,m,0)
 
 if(vt>now){
+
 next={v:v,z:vt}
+
 break
+
 }
 
 }
@@ -263,8 +299,11 @@ break
 if(!next){
 
 let vt=new Date()
+
 const[h,m]=vList[0].t.split(":")
+
 vt.setDate(vt.getDate()+1)
+
 vt.setHours(h,m,0)
 
 next={v:vList[0],z:vt}
@@ -282,6 +321,7 @@ document.getElementById("countdown").innerText=`${h}:${m}:${s}`
 document.getElementById("next-vakit-name").innerText=next.v.n+" VAKTİNE KALAN"
 
 document.querySelectorAll(".vakit-item").forEach(el=>el.classList.remove("active-vakit"))
+
 document.getElementById(next.v.id).classList.add("active-vakit")
 
 }
@@ -301,6 +341,7 @@ function tabDegistir(kat,el){
 aktifKategori=kat
 
 document.querySelectorAll(".nav-btn").forEach(b=>b.classList.remove("active"))
+
 el.classList.add("active")
 
 document.getElementById("kat-etiket").innerText=katIsimleri[kat]
@@ -340,6 +381,7 @@ document.getElementById("kaynak").innerText=s.kaynak||s.isim||""
 }
 
 vakitCek()
+
 verileriGetir()
 
 </script>
